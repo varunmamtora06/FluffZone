@@ -10,6 +10,7 @@ urlpatterns = [
     path('blogs', views.blogs, name='blogs'),
     path('register', views.register, name='register'),
     path('login', views.login, name='login'),
+    path('logout', views.logout, name='logout'),
 ]
 
 urlpatterns += static(settings.STATIC_URL)

@@ -65,7 +65,7 @@ def login(request):
     return render(request, "login.html")
 
 
-# def logout(request):
-#     userModel.auth.logout(request)
-#     return redirect('/')
+def logout(request):
+    userModel.auth.logout(request)
+    return redirect('/')
 
