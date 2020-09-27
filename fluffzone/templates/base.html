@@ -27,7 +27,23 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav  ml-auto">
-          <a class="nav-link" href="login">Login</a>
+        {% if user.is_authenticated %}
+        <h5 class="pt-2">Hello, {{ user.first_name }}</h5>
+        <a class="nav-item nav-link" href="logout">Logout</a>
+        {% comment %} <a class="nav-item nav-link" href="mydashboard">My DashBoard</a> {% endcomment %}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" style="color: black;" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">My DashBoard</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="showblog">My Posts</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="writeblog">Write a Post</a>
+        </div>
+      </li>
+      {% else %}
+
+      <a class="nav-item nav-link" href="login">Login</a>
+      <a class="nav-item nav-link" href="register">Register</a>
+      {% endif %}
           <a class="nav-link" href="identifyBreed">BreedIdentify</a>
           <a class="nav-link" href="blogs">Posts</a>
         </div>
