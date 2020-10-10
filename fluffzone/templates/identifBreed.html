@@ -1,5 +1,21 @@
 {% extends 'base.html' %} 
 
-{% block content %}
-    <h1>identify</h1>
-{% endblock content %}
+{% block content%}
+
+    <h2>Upload Image for Classification</h2>
+
+
+<br>
+<div class="container blog-input text-center mt-5">
+            <form action="identifyBreed" method = "post" enctype="multipart/form-data" class="form-style-4"> 
+                {% csrf_token %} 
+                {{ form.as_p }} 
+
+                 <button type="submit" class="btn btn-primary" >Submit</button>
+
+            </form> 
+           <img src="{{filepath}}">
+           <p>{{filepath}}</p>
+</div>
+
+{% endblock %}
