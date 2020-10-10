@@ -12,3 +12,11 @@ class blog(models.Model):
 
     def __str__(self):
         return self.title
+
+class breed(models.Model):
+    predBreed = models.CharField(max_length=50)
+    img= models.ImageField(default=None,null = True, blank=True)
+    owner = models.ForeignKey(mod.User,on_delete=models.CASCADE)
+
+    # def __str__(self):
+    #     return self.predBreed
