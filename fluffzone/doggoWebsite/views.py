@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import models as userModel
 
-from .models import blog
+from .models import blog,breed
 # you can write from . import forms and then inside all functions forms=forms.CreateBlogForm()
 from .forms import *
 # Create your views here.
@@ -11,7 +11,19 @@ def index(request):
     return render(request, 'index.html')
 
 def identifyBreed(request):
-    return render(request, 'identifBreed.html')
+    if request.method == 'POST':
+        form = CreateBreedForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.owner = request.user
+            instance.save()
+            form = CreateBreedForm()  # wrote this line cuz after submit we should clear form fields
+            filepath = instance.img.url
+            return render(request, 'identifBreed.html', {'form': form,'imag':instance,'filepath':filepath})
+    else:
+        form = CreateBreedForm()
+        return render(request, 'identifBreed.html', {'form': form})
 
 def blogs(request):
     return render(request, 'blogs.html')
