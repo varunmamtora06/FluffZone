@@ -1,5 +1,32 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pgtitle %}
+<title>Blogs</title>
+{% endblock pgtitle %}
+
+{% block pgcss %}
+
+<link rel="stylesheet" href="{% static 'blog.css' %}">
+{% endblock pgcss %}
 
 {% block content %}
-    <h1>blogs</h1>
+
+{% for blog in blogs  %}
+<div class="container blog-block">
+<h3 class="text-center">{{blog.title}}</h3>
+{% if blog.img %}
+    <div class="row justify-content-center">
+        <img src="{{ blog.img.url }}" alt="blog img"/>
+    </div>
+{% endif %}
+<p>{{ blog.body|linebreaks }}</p>
+<p>By : {{ blog.owner.first_name }} {{ blog.owner.last_name }}</p>
+<p>User: {{ blog.owner.username }}</p>
+<p>{{ blog.day }}</p>
+</div>
+{% endfor %}
+
 {% endblock content %}
+
+{% comment %} <script>$('#myModal').modal(options)</script> {% endcomment %}

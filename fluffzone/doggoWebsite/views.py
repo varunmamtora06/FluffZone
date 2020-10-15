@@ -220,9 +220,6 @@ def identifyBreed(request):
 # print(custom_image_paths)
 
 
-def blogs(request):
-    return render(request, 'blogs.html')
-
 def register(request):
     if request.method == 'POST':
         fname = request.POST['fname']
@@ -276,3 +273,57 @@ def logout(request):
     userModel.auth.logout(request)
     return redirect('/')
 
+def writeBlog(request):
+    if request.method == 'POST':
+        form = CreateBlogForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.owner = request.user
+            instance.save()
+            form = CreateBlogForm()  # wrote this line cuz after submit we should clear form fields
+            # wrote this blog fetching query here bcuz we are rendering the blogs page and after submitting new blog user
+            blogs = blog.objects.all()
+            # is redirected to blog page with the newly created blog and he should be able to see all the blogs
+            return redirect('blogs')
+    else:
+        form = CreateBlogForm()
+        return render(request, 'writeblog.html', {'form': form})
+
+
+def blogs(request):
+    blogs = blog.objects.all()
+    return render(request, 'blogs.html', {'blogs': blogs.order_by('-day')})
+
+def myBlog(request):
+    user_id = request.user.id
+    try:
+        blogs = blog.objects.filter(owner_id = user_id)
+        return render(request,'myBlogs.html', {'blogs': blogs.order_by('-day')})
+    except Exception:   
+        return render(request,'myBlogs.html', {'blogs': None})
+    return render(request,'myBlogs.html')
+
+def editBlog(request, pk):
+    selected_blog = blog.objects.get(id=pk)
+    form = CreateBlogForm(instance = selected_blog)
+
+    if request.method == 'POST':
+        form = CreateBlogForm(request.POST, request.FILES, instance = selected_blog)
+        
+        if form.is_valid():
+            ins = form.save(commit = False)
+            ins.owner = request.user
+            ins.save()
+            
+            # is redirected to blog page with the newly created blog and he should be able to see all the blogs
+            return redirect('blogs')
+    else:
+        form = CreateBlogForm(instance = selected_blog)
+    return render(request, 'writeblog.html', {'form': form})
+
+def deleteBlog(request, pk):
+    selectedBlog = blog.objects.get(id=pk)
+    # print(selectedBlog.title)
+    selectedBlog.delete()
+    return redirect('myBlogs')

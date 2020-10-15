@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pgtitle %}
+<title>Write a Blog</title>
+{% endblock pgtitle %}
+
+{% block pgcss %}
+<link rel="stylesheet" href="{% static 'writereview.css' %}">
+{% endblock pgcss %}
+
+{% block content %}
+
+<div class="container blog-input text-center mt-5">
+            <form action="" method = "post" enctype="multipart/form-data" class="form-style-4"> 
+                {% csrf_token %} 
+                {{ form.as_p }} 
+
+                 <button type="submit" class="btn btn-primary" >Create a Blog</button>
+
+            </form> 
+</div>
+
+
+{% endblock content %}

@@ -11,6 +11,10 @@ urlpatterns = [
     path('register', views.register, name='register'),
     path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),
+    path('writeBlog',views.writeBlog,name='writeBlog'),
+    path('myBlogs',views.myBlog,name='myBlogs'),
+    path('deleteBlog/<int:pk>',views.deleteBlog,name='deleteBlog'),
+    path('editBlog/<int:pk>',views.editBlog,name='editBlog'),
     # path('predictImage',views.predictImage,name='PredictImage')
 ]
 

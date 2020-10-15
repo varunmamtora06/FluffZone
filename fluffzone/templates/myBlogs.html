@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pgtitle %}
+<title>My Blogs</title>
+{% endblock pgtitle %}
+
+{% block pgcss %}
+
+<link rel="stylesheet" href="{% static 'blog.css' %}">
+{% endblock pgcss %}
+
+{% block content %}
+    <div class="container">
+        <div class="d-flex flex-column flex-wrap">
+            <h2 class="text-center">My Blogs</h2> 
+             <!--this i wrote cuz if no blogs given by user it should say you dont have any blogs
+              and if not blogs is a way to check weather the list is empty this is how u check a 
+              list is empty or not in python lol.
+                                    -->
+            {% if not blogs %}
+            <h4>You dont have any blog. <a href="writeBlog">Wanna write one?</a></h4>
+            
+            {% else %}
+            <h4>You have written: {{ blogs|length }} blog{{blogs|pluralize}}</h4>
+            {% for blog in blogs  %}
+            <div class="container text-justify blog-block">
+            <h3 class="text-center">{{blog.title}}</h3>
+            {% if blog.img %}
+            <div class="row justify-content-center">
+                <img src="{{ blog.img.url }}" alt="blog img"/>
+            </div>
+            {% endif %}
+
+            <p>{{ blog.body|linebreaks }}</p>
+            <p>By : {{ blog.owner.first_name }} {{ blog.owner.last_name }}</p>
+            <p>User: {{ blog.owner.username }}</p>
+            <p>{{ blog.day }}</p>
+            
+            <div class="row justify-content-between">
+                <a href="{% url 'deleteBlog' blog.pk %}">
+                <div class="del">
+                    <p>Delete</p>
+                </div>
+            </a>
+
+            <a href="{% url 'editBlog' blog.pk %}">
+                <div class="edit">
+                    <p>Edit</p>
+                </div>
+            </a>
+            </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}
