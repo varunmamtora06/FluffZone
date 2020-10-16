@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import models as userModel
 
-from .models import blog,breed
+from .models import blog,breed,adoptPost
 # you can write from . import forms and then inside all functions forms=forms.CreateBlogForm()
 from .forms import *
 # Create your views here.
@@ -327,3 +327,60 @@ def deleteBlog(request, pk):
     # print(selectedBlog.title)
     selectedBlog.delete()
     return redirect('myBlogs')
+
+
+
+def postAdoption(request):
+    if request.method == 'POST':
+        form = CreateAdoptionForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.owner = request.user
+            instance.save()
+            form = CreateAdoptionForm()  # wrote this line cuz after submit we should clear form fields
+            # wrote this blog fetching query here bcuz we are rendering the blogs page and after submitting new blog user
+            adoptions = adoptPost.objects.all()
+            # is redirected to blog page with the newly created blog and he should be able to see all the blogs
+            return redirect('adoptions')
+    else:
+        form = CreateAdoptionForm()
+        return render(request, 'postAdoptions.html', {'form': form})
+
+
+def adoptions(request):
+    adoptions = adoptPost.objects.all()
+    return render(request, 'adoptions.html', {'adoptions': adoptions.order_by('-day')})
+
+def myAdoptions(request):
+    user_id = request.user.id
+    try:
+        adoptions = adoptPost.objects.filter(owner_id = user_id)
+        return render(request,'myAdoptions.html', {'adoptions': adoptions.order_by('-day')})
+    except Exception:   
+        return render(request,'myAdoptions.html', {'adoptions': None})
+    return render(request,'myAdoptions.html')
+
+def editAdoption(request, pk):
+    selected_adoption = adoptPost.objects.get(id=pk)
+    form = CreateAdoptionForm(instance = selected_adoption)
+
+    if request.method == 'POST':
+        form = CreateAdoptionForm(request.POST, request.FILES, instance = selected_adoption)
+        
+        if form.is_valid():
+            ins = form.save(commit = False)
+            ins.owner = request.user
+            ins.save()
+            
+            # is redirected to blog page with the newly created blog and he should be able to see all the blogs
+            return redirect('adoptions')
+    else:
+        form = CreateAdoptionForm(instance = selected_adoption)
+    return render(request, 'postAdoptions.html', {'form': form})
+
+def deleteAdoption(request, pk):
+    selectedAdoption = adoptPost.objects.get(id=pk)
+    # print(selectedBlog.title)
+    selectedAdoption.delete()
+    return redirect('myAdoptions')

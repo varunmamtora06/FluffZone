@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pgtitle %}
+<title>My Adoptions</title>
+{% endblock pgtitle %}
+
+{% block pgcss %}
+
+<link rel="stylesheet" href="{% static 'blog.css' %}">
+{% endblock pgcss %}
+
+{% block content %}
+    <div class="container">
+        <div class="d-flex flex-column flex-wrap">
+            <h2 class="text-center">My Adoption posts</h2> 
+            {% if not adoptions %}
+            <h4>You have not posted any Adoptions. <a href="postAdoption">Wanna post one?</a></h4>
+            
+            {% else %}
+            <h4>You have posted: {{ adoptions|length }} adoption{{adoptions|pluralize}}</h4>
+            {% for adoption in adoptions  %}
+            <div class="container adoption-block">
+<h3 class="text-center">{{adoption.title}}</h3>
+{% if adoption.img %}
+    <div class="row justify-content-center">
+        <img src="{{ adoption.img.url }}" alt="adoption img"/>
+    </div>
+{% endif %}
+        <p>{{ adoption.name }}</p>
+        <p>{{ adoption.breedName }}</p>
+        <p>{{ adoption.health }}</p>
+        <p>{{ adoption.gender }}</p>
+        <p>{{ adoption.ageYears }}</p>
+        <p>{{ adoption.location }}</p>
+        <p>{{ adoption.addr }}</p>
+        <p>{{ adoption.phone }}</p>
+        <p>{{ adoption.upForAdoption }}</p>
+        <p>{{ adoption.details|linebreaks }}</p>
+        <p>{{ adoption.day }}</p>
+</div>
+            
+            <div class="row justify-content-between">
+                <a href="{% url 'deleteAdoption' adoption.pk %}">
+                <div class="del">
+                    <p>Delete</p>
+                </div>
+            </a>
+
+            <a href="{% url 'editAdoption' adoption.pk %}">
+                <div class="edit">
+                    <p>Edit</p>
+                </div>
+            </a>
+            </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}

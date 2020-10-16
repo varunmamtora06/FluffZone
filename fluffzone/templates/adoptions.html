@@ -20,6 +20,15 @@
         <img src="{{ adoption.img.url }}" alt="adoption img"/>
     </div>
 {% endif %}
+<p>{{ adoption.name }}</p>
+<p>{{ adoption.breedName }}</p>
+<p>{{ adoption.health }}</p>
+<p>{{ adoption.gender }}</p>
+<p>{{ adoption.ageYears }}</p>
+<p>{{ adoption.location }}</p>
+<p>{{ adoption.addr }}</p>
+<p>{{ adoption.phone }}</p>
+<p>{{ adoption.upForAdoption }}</p>
 <p>{{ adoption.details|linebreaks }}</p>
 <p>By : {{ adoption.owner.first_name }} {{ adoption.owner.last_name }}</p>
 <p>User: {{ adoption.owner.username }}</p>
