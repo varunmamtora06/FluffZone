@@ -1,5 +1,39 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block pgcss %}
+<link rel="stylesheet" href="{% static 'CSS/index.css' %}">
+{% endblock pgcss %}
+
+{% block pgtitle %}
+<title>Home</title>
+{% endblock pgtitle %}
 
 {% block content %}
-    <h1>index</h1>
+<div class="container-fluid homestuff px-0">
+  <div class="d-flex flex-row flex-wrap">
+    <div class="col-sm">
+      <div class="homeContent">
+        <h1>Wanna Know which breed the dog in your photo belongs to?</h1><br><br>
+        <h3>Well, now you can do so with help of our image classification model !!</h3><br><br>
+        <a href="identifyBreed" style="text-decoration:none">
+            <div class="identifBttn">
+                <p>IdentifyBreed</p>
+            </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm px-0">
+      <div class="dogbg">
+        <img src="{% static 'images/LandingBg.svg' %}" alt=""/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid px-0">
+    <div class="footer">
+        <p>&#169;FluffZone</p>
+    </div>
+</div>
 {% endblock content %}

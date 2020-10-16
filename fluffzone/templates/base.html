@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,11 +10,17 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
+    {% block pgcss %}
+    {% endblock pgcss %}
+    {% block pgtitle %}
+      <title>Home</title>
+    {% endblock pgtitle %}
   </head>
   <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">FluffZone</a>
+      <a class="navbar-brand" href="/"><img src="{% static 'images/Logo.png' %}" alt="FluffZone" style="max-height:100vh; "></a>
       <button
         class="navbar-toggler"
         type="button"
@@ -32,7 +39,7 @@
         <a class="nav-item nav-link" href="logout">Logout</a>
         {% comment %} <a class="nav-item nav-link" href="mydashboard">My DashBoard</a> {% endcomment %}
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" style="color: black;" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">My DashBoard</a>
+        <a class="nav-link dropdown-toggle" style="color: black;" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">My Profile</a>
         <div class="dropdown-menu">
           <a class="dropdown-item" href="myBlogs">My Posts</a>
           <a class="dropdown-item" href="myAdoptions">My Adoption Posts</a>
@@ -43,12 +50,12 @@
       </li>
       {% else %}
 
-      <a class="nav-item nav-link" href="login">Login</a>
+      <a class="nav-item nav-link loginLink" href="login">Login</a>
       {% comment %} <a class="nav-item nav-link" href="register">Register</a> {% endcomment %}
       {% endif %}
-          <a class="nav-link" href="identifyBreed">BreedIdentify</a>
-          <a class="nav-link" href="blogs">Posts</a>
-          <a class="nav-link" href="adoptions">Adoptions</a>
+          <a class="nav-link breedLink" href="identifyBreed">BreedIdentify</a>
+          <a class="nav-link postsLink" href="blogs">Posts</a>
+          <a class="nav-link adoptionsLink" href="adoptions">Adoptions</a>
         </div>
       </div>
     </nav>

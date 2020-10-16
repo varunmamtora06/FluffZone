@@ -1,0 +1,18 @@
+nav>.collapse>.navbar-nav>.nav-link{
+    margin-left: 20px;
+    font-size: 22px ;
+}
+
+nav>.collapse>.navbar-nav>.adoptionsLink, nav>.collapse>.navbar-nav>.postsLink, nav>.collapse>.navbar-nav>.breedLink{
+    color: Black;
+    border-bottom: 5px solid orange;
+}
+
+nav>.collapse>.navbar-nav>.loginLink{
+    text-align: center;
+    width: 204px;
+    border-radius: 35px;
+    font-weight: bold;
+    background-color: #FFBF17;
+    color: white;  
+}
