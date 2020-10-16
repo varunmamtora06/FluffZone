@@ -20,3 +20,26 @@ class breed(models.Model):
 
     # def __str__(self):
     #     return self.predBreed
+
+class adoptPost(models.Model):
+    ADOPTION_CHOICES = (
+    ('yes','YES'),
+    ('no', 'NO'),
+    )
+
+    name = models.CharField(max_length=50, blank = False)
+    breedName = models.CharField(max_length=50, blank = True, null = True)
+    img = models.ImageField(default=None, null=True, blank=True)
+    health = models.CharField(max_length=50, blank = True, null = True)
+    gender = models.CharField(max_length=50, blank = True, null = True)
+    ageYears = models.IntegerField()
+    location = models.CharField(max_length=50, blank=False)
+    addr = models.TextField(blank=False)
+    phone = models.CharField(max_length=15, blank=False, unique=True)
+    upForAdoption = models.CharField(max_length=6, choices=ADOPTION_CHOICES, default='yes')
+    details = models.TextField()
+
+    def __str__(self):
+        return self.name + " the " + self.breedName
+
+

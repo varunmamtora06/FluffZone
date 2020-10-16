@@ -11,3 +11,9 @@ class CreateBreedForm(forms.ModelForm):
     class Meta:
         model = models.breed
         fields = ['img']
+
+class CreateAdoptionForm(forms.ModelForm):
+    
+    class Meta:
+        model = models.adoptPost
+        fields = '__all__'
