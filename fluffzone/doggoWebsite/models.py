@@ -38,6 +38,8 @@ class adoptPost(models.Model):
     phone = models.CharField(max_length=15, blank=False, unique=True)
     upForAdoption = models.CharField(max_length=6, choices=ADOPTION_CHOICES, default='yes')
     details = models.TextField()
+    day = models.DateField(auto_now_add=True, blank=True)
+    owner = models.ForeignKey(mod.User, on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         return self.name + " the " + self.breedName
