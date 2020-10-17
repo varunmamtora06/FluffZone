@@ -1,18 +1,39 @@
+.navbar-brand>img{
+    max-height:100vh;
+}
+
 nav>.collapse>.navbar-nav>.nav-link{
     margin-left: 20px;
     font-size: 22px ;
+    border-bottom: 3px solid rgba(255, 166, 0, 0);
 }
 
-nav>.collapse>.navbar-nav>.adoptionsLink, nav>.collapse>.navbar-nav>.postsLink, nav>.collapse>.navbar-nav>.breedLink{
-    color: Black;
-    border-bottom: 5px solid orange;
+nav>.collapse>.navbar-nav{
+    font-weight: 700;
 }
+
+nav>.collapse>.navbar-nav :hover{
+    color: Black;
+    border-bottom: 3px solid orange;
+    transition: 0.1s ease-in;
+}
+
+/* nav>.collapse>.navbar-nav>.nav-link:hover{
+    border-bottom: 5px solid orange;
+} */
 
 nav>.collapse>.navbar-nav>.loginLink{
+    border: none;
     text-align: center;
     width: 204px;
     border-radius: 35px;
     font-weight: bold;
     background-color: #FFBF17;
     color: white;  
+}
+
+@media all and (max-width:600px){
+    .navbar-brand>img{
+        max-height:50px;
+    }
 }

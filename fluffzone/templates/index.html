@@ -1,39 +1,131 @@
-{% extends 'base.html' %}
-{% load static %} 
-
-{% block pgcss %}
-<link rel="stylesheet" href="{% static 'CSS/index.css' %}">
-{% endblock pgcss %}
-
-{% block pgtitle %}
+{% extends 'base.html' %} {% load static %} {% block pgcss %}
+<link rel="stylesheet" href="{% static 'CSS/index.css' %}" />
+{% endblock pgcss %} {% block pgtitle %}
 <title>Home</title>
-{% endblock pgtitle %}
-
-{% block content %}
+{% endblock pgtitle %} {% block content %}
 <div class="container-fluid homestuff px-0">
   <div class="d-flex flex-row flex-wrap">
+      <div class="mobiledogbg container">
+        <img
+          src="{% static 'images/mobileLandingBg.svg' %}"
+          alt=""
+          style="height: auto; max-width: 100%;"
+        />
+      </div>
     <div class="col-sm">
-      <div class="homeContent">
-        <h1>Wanna Know which breed the dog in your photo belongs to?</h1><br><br>
-        <h3>Well, now you can do so with help of our image classification model !!</h3><br><br>
-        <a href="identifyBreed" style="text-decoration:none">
-            <div class="identifBttn">
-                <p>IdentifyBreed</p>
-            </div>
+      <div class="homeContent container text-center">
+        <h1>Wanna Know which breed the dog in your photo belongs to?</h1>
+        <br /><br />
+        <h3>
+          Well, now you can do so with help of our image classification model !!
+        </h3>
+        <br /><br />
+        <a href="identifyBreed" style="text-decoration: none">
+          <div class="identifBttn">
+            <p>IdentifyBreed</p>
+          </div>
         </a>
       </div>
     </div>
     <div class="col-sm px-0">
       <div class="dogbg">
-        <img src="{% static 'images/LandingBg.svg' %}" alt=""/>
+        <img
+          src="{% static 'images/LandingBg.png' %}"
+          alt=""
+          style="height: auto; max-width: 100%;"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br>
+<div class="container-flex">
+  <div class="d-flex flex-row flex-wrap">
+    <div class="abtimg">
+      <img src="{% static 'images/kitty.svg' %}" alt="" style="height: auto;max-width:100%" />
+    </div>
+    <div class="col-sm">
+        <div class="abtContent">
+          <h3>About US</h3>
+            <p>
+              FluffZone's main goal is to provide a home for every pet. FluffZone
+              also provides interactive features such as Blog posts , Adoption page
+              , Highlight page and an identification page. All these features are
+              explained in detail below
+            </p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<br><br><br>
+<div class="container text-center mb-5">
+  <h2>What is FluffZone?</h2>
+</div>
+
+<div class="container-fluid">
+  <div class="d-flex flex-row flex-wrap text-center">
+    <div class="col-sm">
+      <div class="icn">
+        <img src="{% static 'images/adoption.png' %}" alt="" style="height: 20vh; max-width: 100%;">
+      </div>
+      <div class="feature">
+        <h4>Adoption</h4>
+        <p>This Feature allows the user to post information about the animal they want to put up for adoption.</p>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="icn">
+        <img src="{% static 'images/blog.png' %}" alt="" style="height: 20vh; max-width: 100%;">
+      </div>
+      <div class="feature">
+        <h4>Blog post</h4>
+        <p>This feature allows the user to post blogs related to animals and every month a blog with most likes will be put up onto the highlight section.</p>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="icn">
+        <img src="{% static 'images/identif.png' %}" alt="" style="height: 20vh; max-width: 100%;">
+      </div>
+      <div class="feature">
+        <h4>Breed Identification</h4>
+        <p>Want to know which breed the dog you saw on the street belongs to? Leave it to us , upload the image and we'll immediately let you know the name of the breed.</p>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="icn">
+        <img src="{% static 'images/highlight.png' %}" alt="" style="height: 20vh; max-width: 100%;">
+      </div>
+      <div class="feature">
+        <h4>Highlights Section</h4>
+        <p>Top blogs of the month will be posted here based on likes and with follow up updates.</p>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container-fluid px-0">
-    <div class="footer">
-        <p>&#169;FluffZone</p>
+<br><br><br><br>
+
+<div class="container">
+  <div class="d-flex flex-row flex-wrap">
+    <img src="{% static 'images/dog2.png' %}" alt="" style="height: 40vh; max-width: 100%">
+    <div class="col-sm">
+      <div class="identifContent text-center">
+        <h2>Wanna Know which breed the dog in your photo belongs to?</h2>
+        <a href="identifyBreed" style="text-decoration: none;">
+          <div class="identifBttn" style="margin:auto;">
+            <p>IdentifyBreed</p>
+          </div>
+        </a>
+      </div>
     </div>
+  </div>
+</div>
+
+
+<div class="container-fluid px-0 pt-3">
+  <div class="footer">
+    <p>&#169;FluffZone</p>
+  </div>
 </div>
 {% endblock content %}

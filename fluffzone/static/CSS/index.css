@@ -1,12 +1,12 @@
 .homeContent{
     padding-top: 10%;
-    padding-left: 20%;
+    /* padding-left: 20%; */
 }
 
 .homeContent>h1{
     text-align: center;
     width: 60%;
-    font-size: 60px;
+    font-size:calc(40px + 1vmin);
 
 }
 
@@ -32,6 +32,36 @@
     color: white;
 }
 
+.dogbg{
+    float: right;
+}
+
+.mobiledogbg{
+    display: none;
+}
+
+.abtimg{
+    padding-left: 10%;
+}
+
+
+.abtContent{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.abtContent>h3{
+    font-size: 40px;
+}
+
+.abtContent>p{
+    font-size: 30px;
+}
+
+.feature>p{
+    font-size: 20px;
+}
+
 .footer{
     padding-top: 20px;
     color: black;
@@ -43,4 +73,37 @@
 
 .footer>p{
     margin-bottom: 0;
+}
+
+
+/*mobiles*/
+
+@media all and (max-width:600px){
+    .identifBttn{
+        width: 300px;
+    }
+    .dogbg{
+        display: none;
+    }
+    .mobiledogbg{
+        display: contents;
+    }
+
+    .homeContent>h1{
+        text-align: center;
+        width: 60%;
+        font-size: calc(1rem + 1vmin);
+    
+    }
+    
+    .homeContent>h3{
+        text-align: center;
+        width: 60%;
+        font-size: 35px;
+    
+    }
+
+    .abtimg{
+        padding: 10% ;
+    }
 }
