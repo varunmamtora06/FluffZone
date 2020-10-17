@@ -32,6 +32,23 @@ nav>.collapse>.navbar-nav>.loginLink{
     color: white;  
 }
 
+.footer{
+    bottom: 0;
+    /* position: absolute; */
+    width: 100%;
+    padding-top: 20px;
+    color: black;
+    font-weight: 700;
+    height: 50px;
+    text-align: center;
+    background-color: rgb(172, 172, 172);
+}
+
+.footer>p{
+    margin-bottom: 0;
+}
+
+
 @media all and (max-width:600px){
     .navbar-brand>img{
         max-height:50px;
