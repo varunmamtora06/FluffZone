@@ -7,23 +7,29 @@
 
 {% block pgcss %}
 
-<link rel="stylesheet" href="{% static 'blog.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/posts.css' %}">
 {% endblock pgcss %}
 
 {% block content %}
 
 {% for blog in blogs  %}
 <div class="container blog-block">
-<h3 class="text-center">{{blog.title}}</h3>
-{% if blog.img %}
-    <div class="row justify-content-center">
-        <img src="{{ blog.img.url }}" alt="blog img"/>
+    <div class="col-sm">
+        <h3 class="text-center">{{blog.title}}</h3>
+        <div class="d-flex flex-row flex-wrap">
+            {% if blog.img %}
+                <div class="col-sm blogImg text-center">
+                    <img src="{{ blog.img.url }}" alt="blog img"/>
+                </div>
+            {% endif %}
+            <div class="col-sm">
+                <p>{{ blog.body|linebreaks }}</p>
+                <p>By : {{ blog.owner.first_name }} {{ blog.owner.last_name }}</p>
+                <p>UserName: {{ blog.owner.username }}</p>
+                <p>{{ blog.day }}</p>
+            </div>
+        </div>
     </div>
-{% endif %}
-<p>{{ blog.body|linebreaks }}</p>
-<p>By : {{ blog.owner.first_name }} {{ blog.owner.last_name }}</p>
-<p>User: {{ blog.owner.username }}</p>
-<p>{{ blog.day }}</p>
 </div>
 {% endfor %}
 

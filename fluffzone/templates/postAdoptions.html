@@ -1,22 +1,84 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block pgtitle %}
 <title>Post an Adoption</title>
 {% endblock pgtitle %}
 
 {% block pgcss %}
-<link rel="stylesheet" href="{% static 'postadoption.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/forms.css' %}">
 {% endblock pgcss %}
 
 {% block content %}
 
-<div class="container adoption-input text-center mt-5">
+<div class="container text-center mt-4">
+    <h2>Adoption Details</h2>
+</div>
+
+<div class="container adoption-form my-3">
             <form action="" method = "post" enctype="multipart/form-data" class="form-style-4"> 
                 {% csrf_token %} 
-                {{ form.as_p }} 
-
-                 <button type="submit" class="btn btn-primary" >Create an Adoption</button>
+                <div class="form-row">
+                    <div class="col">
+                        <label>Pet's Name</label>
+                        {% render_field form.name class="form-control required" placeholder="Tommy" %}
+                    </div>
+                    <div class="col">
+                        <label>Breed's Name</label>
+                        {% render_field form.breedName class="form-control" placeholder="pitbull" %}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label>Health Status</label>
+                        {% render_field form.health class="form-control" placeholder="Good or ill" %}
+                    </div>
+                    <div class="col">
+                        <label>Gender</label>
+                        {% render_field form.gender class="form-control" placeholder="male female" %}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label>Age</label>
+                        {% render_field form.ageYears class="form-control" placeholder="age in Years" %}
+                    </div>
+                    <div class="col">
+                        <label>Location</label>
+                        {% render_field form.location class="form-control  required" placeholder="Bandra, Mumbai" %}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label>Image of the Pet</label>
+                        {% render_field form.img class="form-control required" %}
+                    </div>
+                    <div class="col">
+                        <label>Available for adoption?</label>
+                        {% render_field form.upForAdoption class="form-control required" %}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label>Phone</label>
+                        {% render_field form.phone class="form-control required" placeholder="you contact no."%}
+                    </div>
+                    <div class="col">
+                        <label>Your Address</label>
+                        {% render_field form.addr class="form-control required" rows=1 placeholder="B-204, Golden Apts, Carter Road, Bandra, Mumbai" %}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label>Details/ Behaviour of the Pet</label>
+                        {% render_field form.details class="form-control" rows=5 placeholder="playful, loves toys, fav food is nuggets" %}
+                    </div>
+                </div>
+                
+                <div class="container text-center my-4">
+                    <button type="submit" class="btn btn-primary mb-4" >Create an Adoption</button>
+                </div>
 
             </form> 
 </div>

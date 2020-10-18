@@ -1,22 +1,39 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load widget_tweaks %}
 {% block pgtitle %}
 <title>Write a Blog</title>
 {% endblock pgtitle %}
 
 {% block pgcss %}
-<link rel="stylesheet" href="{% static 'writereview.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/forms.css' %}">
 {% endblock pgcss %}
 
 {% block content %}
 
-<div class="container blog-input text-center mt-5">
+<div class="container text-center mt-4">
+    <h2>Write a BlogPost</h2>
+</div>
+
+<div class="container blog-form mt-5">
             <form action="" method = "post" enctype="multipart/form-data" class="form-style-4"> 
                 {% csrf_token %} 
-                {{ form.as_p }} 
+                <div class="container">
+                    <div class="form-row">
+                        <div class="col">
+                            <label>Title</label>
+                            {% render_field form.title class="form-control required" placeholder="First blog!!" %}
+                            <label>Blog Image</label>
+                            {% render_field form.img class="form-control"%}
+                            <label>Body</label>
+                            {% render_field form.body class="form-control required" placeholder="I love to blog about animals!!" %}
+                        </div>
+                    </div>
+                </div>
 
-                 <button type="submit" class="btn btn-primary" >Create a Blog</button>
+                <div class="container text-center my-4">
+                    <button type="submit" class="btn btn-primary mb-4" >Create a Blog</button>
+                </div>
 
             </form> 
 </div>

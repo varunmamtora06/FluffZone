@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'doggoWebsite'
+    'doggoWebsite',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

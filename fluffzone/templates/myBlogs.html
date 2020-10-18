@@ -7,17 +7,17 @@
 
 {% block pgcss %}
 
-<link rel="stylesheet" href="{% static 'blog.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/posts.css' %}">
 {% endblock pgcss %}
 
 {% block content %}
     <div class="container">
         <div class="d-flex flex-column flex-wrap">
             <h2 class="text-center">My Blogs</h2> 
-             <!--this i wrote cuz if no blogs given by user it should say you dont have any blogs
-              and if not blogs is a way to check weather the list is empty this is how u check a 
-              list is empty or not in python lol.
-                                    -->
+            <!--this i wrote cuz if no blogs given by user it should say you dont have any blogs
+            and if not blogs is a way to check weather the list is empty this is how u check a 
+            list is empty or not in python lol.
+            -->
             {% if not blogs %}
             <h4>You dont have any blog. <a href="writeBlog">Wanna write one?</a></h4>
             
@@ -28,7 +28,7 @@
             <h3 class="text-center">{{blog.title}}</h3>
             {% if blog.img %}
             <div class="row justify-content-center">
-                <img src="{{ blog.img.url }}" alt="blog img"/>
+                <img src="{{ blog.img.url }}" alt="blog img" style="height:20vh; max-width:100% ;"/>
             </div>
             {% endif %}
 

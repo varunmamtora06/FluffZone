@@ -1,40 +1,45 @@
 {% extends 'base.html' %} 
+{% load static %}
 
 {% block pgtitle %}
 <title>Register</title>
 {% endblock pgtitle %}
 
-{% block content %}
-     <div class="container">
-    <form action="register" method="POST">
-    {% csrf_token %}
+{% block pgcss %}
+<link rel="stylesheet" href="{% static 'CSS/forms.css' %}">
+{% endblock pgcss %}
 
-      <div class="form-group">
-        <label>First Name</label>
-        <input type="text" class="form-control" name="fname" required>
-      </div>
-      <div class="form-group">
-        <label>Last Name</label>
-        <input type="text" class="form-control" name="lname" required>
-      </div>
-      <div class="form-group">
-        <label>Username</label>
-        <input type="text" class="form-control" name="username" required>
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" class="form-control" name="email" required>
-      </div>
-      <div class="form-group">
-        <label >Enter password</label>
-        <input type="password" class="form-control" name="password1" required>
-      </div>
-      <div class="form-group">
-        <label>Re-enter passsword</label>
-        <input type="password" class="form-control" name="password2" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form><br>
+{% block content %}
+    <div class="container register-form">
+      <form action="register" method="POST">
+      {% csrf_token %}
+
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" class="form-control" name="fname" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" class="form-control" name="lname" required>
+        </div>
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" class="form-control" name="username" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control" name="email" required>
+        </div>
+        <div class="form-group">
+          <label >Enter password</label>
+          <input type="password" class="form-control" name="password1" required>
+        </div>
+        <div class="form-group">
+          <label>Re-enter passsword</label>
+          <input type="password" class="form-control" name="password2" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form><br>
     <h4>Already a user? <a href="login">Login</a></h4><br>
     {% for message in messages %}
       <h3>{{ message }}</h3>
