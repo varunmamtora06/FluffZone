@@ -21,5 +21,6 @@ body{
 @media all and (max-width:600px){
     .adoption-block, .blog-block{
         width: 90%;
+        word-break: break-word;
     }
 }
