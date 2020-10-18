@@ -35,7 +35,7 @@ class adoptPost(models.Model):
     ageYears = models.IntegerField()
     location = models.CharField(max_length=50, blank=False)
     addr = models.TextField(blank=False)
-    phone = models.CharField(max_length=15, blank=False, unique=True)
+    phone = models.CharField(max_length=15, blank=False)
     upForAdoption = models.CharField(max_length=6, choices=ADOPTION_CHOICES, default='yes')
     details = models.TextField()
     day = models.DateField(auto_now_add=True, blank=True)
