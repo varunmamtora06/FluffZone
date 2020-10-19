@@ -31,8 +31,14 @@
                 <img src="{{imag.img.url}}">
                 {% comment %} <p>{{imag.img.url}}</p> {% endcomment %}
                 <div class="result  mt-5">
-                    <h2>The predicted breed is: </h2>
+                    {% if not flg %}
+                    <h2>Please Upload a better Dog Image </h2>
+                    {% else %}
+                    <h2>The top 3 potential breeds respectively are: </h2>
+                    
                     <h1>{{breed}}</h1>
+                    {% endif %}
+                    
                 </div>
             </div>
         </div>

@@ -7,11 +7,11 @@ from .models import blog,breed,adoptPost
 from .forms import *
 # Create your views here.
 
-# import tensorflow as tf
-# import tensorflow_hub as hub
-# import pandas as pd
-# import numpy as np
-# import os
+import tensorflow as tf
+import tensorflow_hub as hub
+import pandas as pd
+import numpy as np
+import os
 
 def index(request):
     return render(request, 'index.html')
@@ -49,7 +49,8 @@ def identifyBreed(request):
             custom_path = "media/" + filepath
             f = filepath.lstrip('/')
 
-            
+            flag = 0
+
             custom_image_paths[0] = f
 
             print(custom_image_paths)
@@ -62,7 +63,14 @@ def identifyBreed(request):
 
             preds1 = [get_pred_label(preds[i]) for i in range(len(preds))]
 
+            top_10_pred = plot_read_conf(preds , unique_breeds , n = 0)
 
+            top_3 = top_10_pred[0:3]
+            #top_3.rstrip(']')
+            #top_3.lstrip('[')
+            top_3 = ' , '.join(top_3)
+
+            
             
 
             
@@ -74,12 +82,13 @@ def identifyBreed(request):
             if percentage < 30:
                 predBreed = "Please Enter a better image " #this to print
             else :
-                predBreed = lab#this to print
+                flag = 1
+                predBreed = top_3#this to print
             # predBreed="German Shepherd"
             
             
             
-            return render(request, 'identifBreed.html', {'form': form,'imag':instance,'filepath':filepath , 'breed':predBreed})
+            return render(request, 'identifBreed.html', {'form': form,'imag':instance,'filepath':filepath , 'breed':predBreed , 'flg':flag})
     else:
         form = CreateBreedForm()
         return render(request, 'identifBreed.html', {'form': form})
