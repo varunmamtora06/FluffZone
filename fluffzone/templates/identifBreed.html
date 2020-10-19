@@ -1,12 +1,17 @@
 {% extends 'base.html' %} 
+{% load static %}
 
 {% block pgtitle %}
 <title>Indentify dogbreed</title>
 {% endblock pgtitle %}
 
+{% block pgcss %}
+<link rel="stylesheet" href="{% static 'CSS/identif.css' %}">
+{% endblock pgcss %}
+
 {% block content%}
 
-    <h2>Upload Image for Classification</h2>
+    <h3>Upload Image for Classification</h3>
 
 
 <br>
@@ -15,12 +20,26 @@
                 {% csrf_token %} 
                 {{ form.as_p }} 
 
-                 <button type="submit" class="btn btn-primary" >Submit</button>
+                <button type="submit" class="btn btn-primary" >Submit</button>
 
             </form> 
-           <img src="{{filepath}}">
-           <p>{{filepath}}</p>
-           <h4>{{breed}}</h4>
+        {% comment %} <img src="{{filepath}}"> {% endcomment %}
+        {% comment %} <p>{{filepath}}</p> {% endcomment %}
+
+        <div class="container-flex">
+            <div class="d-flex flex-row flex-wrap identifContent">
+                <img src="{{imag.img.url}}">
+                {% comment %} <p>{{imag.img.url}}</p> {% endcomment %}
+                <div class="result  mt-5">
+                    <h2>The predicted breed is: </h2>
+                    <h1>{{breed}}</h1>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div class="bottom-pattern">
+    <img src="{% static 'images/bottomPattern.svg' %}" style="height:auto; max-width:100%;">
 </div>
 
 {% endblock %}

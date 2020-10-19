@@ -1,0 +1,71 @@
+.identifContent>img{
+    height:60vh;
+    max-width:100%;
+}
+
+
+
+.footer{
+    margin-top: 0px;
+    bottom: 0; 
+    position: fixed;
+    z-index: -10;
+}
+
+.bottom-pattern{
+    bottom: 0;
+    position: fixed;
+    z-index: -10;
+
+}
+
+
+/*tabs- ipad pro*/
+@media all and (max-width:1024px){
+    .footer{
+        margin-top: 0px;
+        bottom: 0; 
+        position: fixed;
+        z-index: -10;
+    }
+}
+
+/*tabs- ipad*/
+
+@media all and (max-width:800px){
+    .identifContent>img{
+        height:50vh;
+        max-width:100%;
+    }
+    
+}
+/*mobiles*/
+@media all and (max-width:600px){
+    
+    .identifContent>img{
+        height:35vh;
+        max-width:100%;
+        margin-top: 20px;
+    }
+    .identifContent>.result>h2{
+        font-size: 20px;
+    }
+
+    .identifContent>.result>h1{
+        font-size: 30px;
+    }
+    
+    .bottom-pattern{
+        bottom: 0;
+        width: 100%;
+        position: fixed;
+    }
+
+    .footer{
+        margin-top: 0px;
+        bottom: 0; 
+        width: 100%;
+        /* position: relative; */
+        z-index: -10;
+    }
+}
