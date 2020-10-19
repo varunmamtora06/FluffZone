@@ -65,10 +65,10 @@ def identifyBreed(request):
 
             top_10_pred = plot_read_conf(preds , unique_breeds , n = 0)
 
-            top_3 = top_10_pred[0:3]
+            top_2= top_10_pred[0:2]
             #top_3.rstrip(']')
             #top_3.lstrip('[')
-            top_3 = ' , '.join(top_3)
+            top_2 = ' , '.join(top_2)
 
             
             
@@ -83,7 +83,7 @@ def identifyBreed(request):
                 predBreed = "Please Enter a better image " #this to print
             else :
                 flag = 1
-                predBreed = top_3#this to print
+                predBreed = top_2#this to print
             # predBreed="German Shepherd"
             
             

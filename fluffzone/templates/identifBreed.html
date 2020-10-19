@@ -28,13 +28,13 @@
 
         <div class="container-flex">
             <div class="d-flex flex-row flex-wrap identifContent">
-                <img src="{{imag.img.url}}">
+                <img src="{{imag.img.url}}" >
                 {% comment %} <p>{{imag.img.url}}</p> {% endcomment %}
                 <div class="result  mt-5">
                     {% if not flg %}
                     <h2>Please Upload a better Dog Image </h2>
                     {% else %}
-                    <h2>The top 3 potential breeds respectively are: </h2>
+                    <h2>The potential breeds are: </h2>
                     
                     <h1>{{breed}}</h1>
                     {% endif %}
