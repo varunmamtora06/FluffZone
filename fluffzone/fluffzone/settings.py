@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '^-0olon!w@-$d-%tha^*x5y=!40f&7sq_k8ga09eu1p(yfscqr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['fluffzone.herokuapp.com','127.0.0.1']
 
