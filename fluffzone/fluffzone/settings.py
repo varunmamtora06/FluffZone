@@ -79,13 +79,9 @@ WSGI_APPLICATION = 'fluffzone.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dan4e2jqidcns6',
-        'HOST': 'ec2-54-158-190-214.compute-1.amazonaws.com',
-        'PORT': 5432,
-        'USER': 'ooimrbwmwudcdm',
-        'PASSWORD': 'b43d67d72d2a874d57604a981bf024f1d01d14940d81077aa8b31333d333dab6',
-        
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+
 
     }
 }

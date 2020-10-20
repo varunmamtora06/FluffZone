@@ -23,16 +23,16 @@ def index(request):
 
 IMG_SIZE = 224
 
-df = pd.read_csv("fluffzone/models/labels.csv")
+df = pd.read_csv("models/labels.csv")
 label = df['breed']
 
 
-custom_path = "fluffzone/media/"
+custom_path = "media/"
 custom_image_paths = []
 print(custom_path)
 
 
-filepath = "fluffzone/media/g.jpeg"
+filepath = "media/g.jpeg"
 custom_image_paths.append(filepath)
 
 def identifyBreed(request):
@@ -48,7 +48,7 @@ def identifyBreed(request):
             filepath = str(instance.img.url)
             custom_path = "media/" + filepath
             f = filepath.lstrip('/')
-            f = 'fluffzone/' + f
+            
 
             flag = 0
 
@@ -161,7 +161,7 @@ def get_pred_label(prediction_probab):
 
 
 
-model_path1 = "fluffzone/models/20200803-19021596481332-All images Images.h5"
+model_path1 = "models/20200803-19021596481332-All images Images.h5"
 
 def load_model(model_path):
 
