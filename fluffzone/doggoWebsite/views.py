@@ -27,12 +27,12 @@ df = pd.read_csv("fluffzone/models/labels.csv")
 label = df['breed']
 
 
-custom_path = "media/"
+custom_path = "fluffzone/media/"
 custom_image_paths = []
 print(custom_path)
 
 
-filepath = "media/g.jpeg"
+filepath = "fluffzone/media/g.jpeg"
 custom_image_paths.append(filepath)
 
 def identifyBreed(request):
@@ -46,7 +46,7 @@ def identifyBreed(request):
             form = CreateBreedForm()  # wrote this line cuz after submit we should clear form fields
             global filepath
             filepath = str(instance.img.url)
-            custom_path = "media/" + filepath
+            custom_path = "fluffzone/media/" + filepath
             f = filepath.lstrip('/')
 
             flag = 0
