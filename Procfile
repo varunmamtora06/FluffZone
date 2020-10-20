@@ -1,1 +1,1 @@
-web: gunicorn fluffzone.wsgi --log-file -
+web: gunicorn --pythonpath fluffzone fluffzone.wsgi --log-file -
