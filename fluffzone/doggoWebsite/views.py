@@ -23,7 +23,7 @@ def index(request):
 
 IMG_SIZE = 224
 
-df = pd.read_csv("models/labels.csv")
+df = pd.read_csv("fluffzone/models/labels.csv")
 label = df['breed']
 
 
