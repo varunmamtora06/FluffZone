@@ -46,7 +46,7 @@ def identifyBreed(request):
             form = CreateBreedForm()  # wrote this line cuz after submit we should clear form fields
             global filepath
             filepath = str(instance.img.url)
-            custom_path = "fluffzone/media/" + filepath
+            custom_path = "media/" + filepath
             f = filepath.lstrip('/')
             f = 'fluffzone/' + f
 
