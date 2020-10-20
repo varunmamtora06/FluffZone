@@ -80,11 +80,15 @@ WSGI_APPLICATION = 'fluffzone.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-
+        'NAME': 'd62etc5gp8ulvi',
+        'HOST': 'ec2-54-157-88-70.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'wbsaxgcwupjjzn',
+        'PASSWORD': '7a0723492ad87b97704d46998fa09a796d97d211ff9e80dd8aeba7c84b7eeaaa'
 
     }
 }
+
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 # Password validation
