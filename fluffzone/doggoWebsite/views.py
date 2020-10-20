@@ -48,6 +48,7 @@ def identifyBreed(request):
             filepath = str(instance.img.url)
             custom_path = "fluffzone/media/" + filepath
             f = filepath.lstrip('/')
+            f = 'fluffzone/' + f
 
             flag = 0
 
