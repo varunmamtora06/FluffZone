@@ -160,7 +160,7 @@ def get_pred_label(prediction_probab):
 
 
 
-model_path1 = "models/20200803-19021596481332-All images Images.h5"
+model_path1 = "fluffzone/models/20200803-19021596481332-All images Images.h5"
 
 def load_model(model_path):
 
