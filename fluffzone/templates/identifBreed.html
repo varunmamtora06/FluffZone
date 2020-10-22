@@ -15,34 +15,43 @@
 
 
 <br>
-<div class="container blog-input text-center mt-5">
-            <form action="identifyBreed" method = "post" enctype="multipart/form-data" class="form-style-4"> 
-                {% csrf_token %} 
-                {{ form.as_p }} 
+{% if user.is_authenticated %}
 
-                <button type="submit" class="btn btn-primary" >Submit</button>
+    <div class="container blog-input text-center mt-5">
+                <form action="identifyBreed" method = "post" enctype="multipart/form-data" class="form-style-4"> 
+                    {% csrf_token %} 
+                    {{ form.as_p }} 
 
-            </form> 
-        {% comment %} <img src="{{filepath}}"> {% endcomment %}
-        {% comment %} <p>{{filepath}}</p> {% endcomment %}
+                    <button type="submit" class="btn btn-primary" >Submit</button>
 
-        <div class="container-flex">
-            <div class="d-flex flex-row flex-wrap identifContent">
-                <img src="{{imag.img.url}}" >
-                {% comment %} <p>{{imag.img.url}}</p> {% endcomment %}
-                <div class="result  mt-5">
-                    {% if not flg %}
-                    <h2>Please Upload a better Dog Image </h2>
-                    {% else %}
-                    <h2>The potential breeds are: </h2>
-                    
-                    <h1>{{breed}}</h1>
-                    {% endif %}
-                    
+                </form> 
+            {% comment %} <img src="{{filepath}}"> {% endcomment %}
+            {% comment %} <p>{{filepath}}</p> {% endcomment %}
+
+            <div class="container-flex">
+                <div class="d-flex flex-row flex-wrap identifContent">
+                    <img src="{{imag.img.url}}" >
+                    {% comment %} <p>{{imag.img.url}}</p> {% endcomment %}
+                    <div class="result  mt-5">
+                        {% if not flg %}
+                        <h2>Please Upload a better Dog Image </h2>
+                        {% else %}
+                        <h2>The potential breeds are: </h2>
+                        
+                        <h1>{{breed}}</h1>
+                        {% endif %}
+                        
+                    </div>
                 </div>
             </div>
-        </div>
-</div>
+    </div>
+{% else %}
+    <div class="container text-center">
+        <p style="font-size:30px" style="top:20%;">
+            Please <a href="login">Login</a> to use this feature.
+        </p>
+    </div>
+{% endif %}
 
 <div class="bottom-pattern">
     <img src="{% static 'images/bottomPattern.svg' %}" style="height:auto; max-width:100%;">
