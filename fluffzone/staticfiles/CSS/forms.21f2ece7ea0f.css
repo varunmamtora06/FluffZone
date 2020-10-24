@@ -1,0 +1,31 @@
+body{
+    background-color: #f9f3e4;
+}
+
+.adoption-form, .blog-form, .login-form, .register-form{
+    background-color:#EFEFEF;
+    border-radius: 30px;
+    box-shadow: 2px 2px 10px #888888;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.adoption-form, .blog-form, .login-form, .register-form{
+    font-size: 20px;
+}
+
+.footer{
+    margin-top: 10px;
+    bottom: 0;
+    position: fixed;
+}
+
+/*mobiles*/
+@media all and (max-width:600px){
+    .adoption-form{
+        width: 95%;
+    }
+    .blog-form{
+        width: 90%;
+    }
+}
