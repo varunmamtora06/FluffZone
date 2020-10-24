@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '^-0olon!w@-$d-%tha^*x5y=!40f&7sq_k8ga09eu1p(yfscqr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['fluffzone.herokuapp.com','127.0.0.1']
 
@@ -129,7 +129,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR/ 'static']
-STATIC_ROOT = BASE_DIR/ 'staicfiles'
+STATIC_ROOT = BASE_DIR/ 'staticfiles'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/ 'media'
