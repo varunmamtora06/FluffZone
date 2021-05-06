@@ -19,6 +19,18 @@
 - [Click to view dog breed identitication](https://drive.google.com/file/d/1GcF4sJ3FUIFDbYs2HovJg530AbBSbBzj/view?usp=sharing)
 - [Click to view mobile version](https://drive.google.com/file/d/1AS8Ug_tVC9hzT-egEquxDoD6CH8m41Va/view?usp=sharing)
 
+### Few screen snaps
+- Home Page
+<p align="center">
+  <img src="https://github.com/varunmamtora06/FluffZone/blob/master/assets/homepg.png" width="550px" height="100%" alt="ekyc" title="EKYC"/>
+</p>
+- Breed Identification Page
+<p align="center">
+  <img src="https://github.com/varunmamtora06/FluffZone/blob/master/assets/identif.png" width="720px" height="360px" alt="ekyc" title="EKYC"/>
+</p>
+
+
+
 ### Tech Stack
 - Frontend
 	- HTML5
