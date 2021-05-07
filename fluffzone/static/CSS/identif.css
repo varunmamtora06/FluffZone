@@ -6,9 +6,9 @@
 
 
 .footer{
-    margin-top: 0px;
+    
     bottom: 0; 
-    position: relative;
+    position: absolute;
     /* z-index: -10; */
 }
 
