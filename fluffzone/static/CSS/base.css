@@ -47,6 +47,14 @@ nav>.collapse>.navbar-nav>.loginLink{
     background-color: rgb(172, 172, 172);
 }
 
+.footer>a{
+    color: black;
+}
+
+.footer>a:hover{
+    text-decoration: none;
+}
+
 .footer>p{
     margin-bottom: 0;
 }
